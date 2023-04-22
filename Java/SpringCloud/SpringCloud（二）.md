@@ -1,4 +1,4 @@
-![image-20220326001448808](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/0.jpg)
+![image-20220326001448808](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/0.jpg)
 
 # 微服务进阶
 
@@ -36,7 +36,7 @@
 
 ***
 
-![image-20220326110940692](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/1.jpg)
+![image-20220326110940692](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/1.jpg)
 
 ## Nacos 更加全能的注册中心
 
@@ -46,17 +46,17 @@ Nacos（**Na**ming **Co**nfiguration **S**ervice）是一款阿里巴巴开源�
 
 Nacos服务器是独立安装部署的，因此我们需要下载最新的Nacos服务端程序，下载地址：https://github.com/alibaba/nacos，连不上可以到视频下方云盘中下载。
 
-![image-20220326125206549](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/2.jpg)
+![image-20220326125206549](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/2.jpg)
 
 可以看到目前最新的版本是`1.4.3`版本（2022年2月27日发布的），我们直接下载`zip`文件即可。
 
 接着我们将文件进行解压，得到以下内容：
 
-![image-20220326125854416](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/3.jpg)
+![image-20220326125854416](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/3.jpg)
 
 我们直接将其拖入到项目文件夹下，便于我们一会在IDEA内部启动，接着添加运行配置：
 
-![image-20220326130340573](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/4.jpg)
+![image-20220326130340573](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/4.jpg)
 
 其中`-m standalone`表示单节点模式，Mac和Linux下记得将解释器设定为`/bin/bash`，由于Nacos在Mac/Linux默认是后台启动模式，我们修改一下它的bash文件，让它变成前台启动，这样IDEA关闭了Nacos就自动关闭了，否则开发环境下很容易忘记关：
 
@@ -68,15 +68,15 @@ $JAVA ${JAVA_OPT} nacos.nacos
 
 接着我们点击启动：
 
-![image-20220326132051779](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/5.jpg)
+![image-20220326132051779](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/5.jpg)
 
 OK，启动成功，可以看到它的管理页面地址也是给我们贴出来了： http://localhost:8848/nacos/index.html，访问这个地址：
 
-![image-20220326132157126](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/6.jpg)
+![image-20220326132157126](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/6.jpg)
 
 默认的用户名和管理员密码都是`nacos`，直接登陆即可，可以看到进入管理页面之后功能也是相当丰富：
 
-![image-20220326132455674](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/7.jpg)
+![image-20220326132455674](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/7.jpg)
 
 至此，Nacos的安装与部署完成。
 
@@ -147,11 +147,11 @@ spring:
 
 接着启动我们的图书服务，可以在Nacos的服务列表中找到：
 
-![image-20220326140130226](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/8.jpg)
+![image-20220326140130226](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/8.jpg)
 
 按照同样的方法，我们接着将另外两个服务也注册到Nacos中：
 
-![image-20220326140618708](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/9.jpg)
+![image-20220326140618708](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/9.jpg)
 
 接着我们使用OpenFeign，实现服务发现远程调用以及负载均衡，导入依赖：
 
@@ -225,11 +225,11 @@ public class BorrowApplication {
 
 接着我们进行测试：
 
-![image-20220326142331199](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/10.jpg)
+![image-20220326142331199](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/10.jpg)
 
 测试正常，可以自动发现服务，接着我们来多配置几个实例，去掉图书服务和用户服务的端口配置：
 
-![image-20220326142751398](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/11.jpg)
+![image-20220326142751398](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/11.jpg)
 
 然后我们在图书服务和用户服务中添加一句打印方便之后查看：
 
@@ -242,23 +242,23 @@ public User findUserById(@PathVariable("uid") int uid){
 ```
 
 现在将全部服务启动：
-![image-20220326142953904](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/12.jpg)
+![image-20220326142953904](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/12.jpg)
 
 可以看到Nacos中的实例数量已经显示为`2`：
 
-![image-20220326143017054](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/13.jpg)
+![image-20220326143017054](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/13.jpg)
 
 接着我们调用借阅服务，看看能否负载均衡远程调用：
 
-![image-20220326143058939](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/14.jpg)
+![image-20220326143058939](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/14.jpg)
 
-![image-20220326143122333](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/15.jpg)
+![image-20220326143122333](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/15.jpg)
 
 OK，负载均衡远程调用没有问题，这样我们就实现了基于Nacos的服务的注册与发现，实际上大致流程与Eureka一致。
 
 值得注意的是，Nacos区分了临时实例和非临时实例：
 
-![image-20220326155010841](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/16.jpg)
+![image-20220326155010841](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/16.jpg)
 
 那么临时和非临时有什么区别呢？
 
@@ -281,11 +281,11 @@ spring:
 
 接着我们在Nacos中查看，可以发现实例已经不是临时的了：
 
-![image-20220326155554821](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/17.jpg)
+![image-20220326155554821](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/17.jpg)
 
 如果这时我们关闭此实例，那么会变成这样：
 
-![image-20220326155633190](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/18.jpg)
+![image-20220326155633190](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/18.jpg)
 
 只是将健康状态变为false，而不会删除实例的信息。
 
@@ -305,11 +305,11 @@ eureka:
 
 在一个分布式应用中，相同服务的实例可能会在不同的机器、位置上启动，比如我们的用户管理服务，可能在成都有1台服务器部署、重庆有一台服务器部署，而这时，我们在成都的服务器上启动了借阅服务，那么如果我们的借阅服务现在要调用用户服务，就应该优先选择同一个区域的用户服务进行调用，这样会使得响应速度更快。
 
-![image-20220326150024118](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/19.jpg)
+![image-20220326150024118](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/19.jpg)
 
 因此，我们可以对部署在不同机房的服务进行分区，可以看到实例的分区是默认：
 
-![image-20220326150136538](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/20.jpg)
+![image-20220326150136538](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/20.jpg)
 
 我们可以直接在配置文件中进行修改：
 
@@ -327,11 +327,11 @@ spring:
 
 当然由于我们这里使用的是不同的启动配置，直接在启动配置中添加环境变量`spring.cloud.nacos.discovery.cluster-name`也行，这里我们将用户服务和图书服务两个区域都分配一个，借阅服务就配置为成都地区：
 
-![image-20220326150518357](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/21.jpg)
+![image-20220326150518357](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/21.jpg)
 
 修改完成之后，我们来尝试重新启动一下（Nacos也要重启），观察Nacos中集群分布情况：
 
-![image-20220326150956937](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/22.jpg)
+![image-20220326150956937](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/22.jpg)
 
 可以看到现在有两个集群，并且都有一个实例正在运行。我们接着去调用借阅服务，但是发现并没有按照区域进行优先调用，而依然使用的是轮询模式的负载均衡调用。
 
@@ -354,13 +354,13 @@ spring:
 
 现在我们重启借阅服务，会发现优先调用的是同区域的用户和图书服务，现在我们可以将成都地区的服务下线：
 
-![image-20220326153002500](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/23.jpg)
+![image-20220326153002500](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/23.jpg)
 
 可以看到，在下线之后，由于本区域内没有可用服务了，借阅服务将会调用重庆区域的用户服务。
 
 除了根据区域优先调用之外，同一个区域内的实例也可以单独设置权重，Nacos会优先选择权重更大的实例进行调用，我们可以直接在管理页面中进行配置：
 
-![image-20220326152659294](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/24.jpg)
+![image-20220326152659294](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/24.jpg)
 
 或是在配置文件中进行配置：
 
@@ -385,15 +385,15 @@ spring:
 
 实际上我们可以在`bootstrap.yml`中配置远程配置文件获取，然后再进入到配置文件加载环节，而Nacos也支持这样的操作，使用方式也比较类似，比如我们现在想要将借阅服务的配置文件放到Nacos进行管理，那么这个时候就需要在Nacos中创建配置文件：
 
-![image-20220326161111523](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/25.jpg)
+![image-20220326161111523](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/25.jpg)
 
 将借阅服务的配置文件全部（当然正常情况下是不会全部CV的，只会复制那些需要经常修改的部分，这里为了省事就直接全部CV了）复制过来，注意**Data ID**的格式跟我们之前一样，`应用名称-环境.yml`，如果只编写应用名称，那么代表此配置文件无论在什么环境下都会使用，然后每个配置文件都可以进行分组，也算是一种分类方式：
 
-![image-20220326162108899](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/26.jpg)
+![image-20220326162108899](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/26.jpg)
 
 完成之后点击发布即可：
 
-![image-20220326162122134](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/27.jpg)
+![image-20220326162122134](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/27.jpg)
 
 然后在项目中导入依赖：
 
@@ -429,7 +429,7 @@ spring:
 
 现在我们启动服务试试看：
 
-![image-20220326163449032](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/28.jpg)
+![image-20220326163449032](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/28.jpg)
 
 可以看到成功读取配置文件并启动了，实际上使用上来说跟之前的Config是基本一致的。
 
@@ -451,23 +451,23 @@ public class TestController {
 
 我们修改一下配置文件，然后重启服务器：
 
-![image-20220326164209154](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/29.jpg)
+![image-20220326164209154](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/29.jpg)
 
 可以看到已经可以正常读取了：
 
-![image-20220326164306032](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/30.jpg)
+![image-20220326164306032](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/30.jpg)
 
 现在我们将配置文件的值进行修改：
 
-![image-20220326164531412](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/31.jpg)
+![image-20220326164531412](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/31.jpg)
 
 再次访问接口，会发现没有发生变化：
 
-![image-20220326164549862](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/32.jpg)
+![image-20220326164549862](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/32.jpg)
 
 但是后台是成功检测到值更新了，但是值却没改变：
 
-![image-20220326164645791](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/33.jpg)
+![image-20220326164645791](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/33.jpg)
 
 那么如何才能实现配置热更新呢？我们可以像下面这样：
 
@@ -492,15 +492,15 @@ public class TestController {
 
 我们还可以将配置文件或是服务实例划分到不同的命名空间中，其实就是区分开发、生产环境或是引用归属之类的：
 
-![image-20220326172756819](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/34.jpg)
+![image-20220326172756819](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/34.jpg)
 
 这里我们创建一个新的命名空间：
 
-![image-20220326173744551](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/35.jpg)
+![image-20220326173744551](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/35.jpg)
 
 可以看到在dev命名空间下，没有任何配置文件和服务：
 
-![image-20220326175340892](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/36.jpg)
+![image-20220326175340892](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/36.jpg)
 
 我们在不同的命名空间下，实例和配置都是相互之间隔离的，我们也可以在配置文件中指定当前的命名空间。
 
@@ -512,7 +512,7 @@ public class TestController {
 
 官方方案：https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html
 
-![deployDnsVipMode.jpg](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/37.jpg)
+![deployDnsVipMode.jpg](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/37.jpg)
 
 >http://ip1:port/openAPI 直连ip模式，机器挂则需要修改ip才可以使用。
 >
@@ -528,21 +528,21 @@ public class TestController {
 
 最后就是Nacos的数据存储模式，在单节点的情况下，Nacos实际上是将数据存放在自带的一个嵌入式数据库中：
 
-![image-20220326222343802](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/38.jpg)
+![image-20220326222343802](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/38.jpg)
 
 而这种模式只适用于单节点，在多节点集群模式下，肯定是不能各存各的，所以，Nacos提供了MySQL统一存储支持，我们只需要让所有的Nacos服务器连接MySQL进行数据存储即可，官方也提供好了SQL文件。
 
 现在就可以开始了，第一步，我们直接导入数据库即可，文件在conf目录中：
 
-![image-20220326222728745](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/39.jpg)
+![image-20220326222728745](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/39.jpg)
 
 我们来将其导入到数据库，可以看到生成了很多的表：
 
-![image-20220326222957239](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/40.jpg)
+![image-20220326222957239](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/40.jpg)
 
 然后我们来创建两个Nacos服务器，做一个迷你的集群，这里使用`scp`命令将nacos服务端上传到Linux服务器（注意需要提前安装好JRE 8或更高版本的环境）：
 
-![image-20220327115901662](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/41.jpg)
+![image-20220327115901662](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/41.jpg)
 
 解压之后，我们对其配置文件进行修改，首先是`application.properties`配置文件，修改以下内容，包括MySQL服务器的信息：
 
@@ -565,23 +565,23 @@ db.password.0=nacos
 
 然后修改集群配置，这里需要重命名一下：
 
-![image-20220327120219022](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/42.jpg)
+![image-20220327120219022](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/42.jpg)
 
 端口记得使用内网IP地址：
 
-![image-20220327142541523](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/43.jpg)
+![image-20220327142541523](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/43.jpg)
 
 最后我们修改一下Nacos的内存分配以及前台启动，直接修改`startup.sh`文件（内存有限，玩不起高的）：
 
-![image-20220327125049013](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/44.jpg)
+![image-20220327125049013](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/44.jpg)
 
 保存之后，将nacos复制一份，并将端口修改为8802，接着启动这两个Nacos服务器。
 
-![image-20220327125201913](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/45.jpg)
+![image-20220327125201913](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/45.jpg)
 
 然后我们打开管理面板，可以看到两个节点都已经启动了：
 
-![image-20220327125232238](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/46.jpg)
+![image-20220327125232238](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/46.jpg)
 
 这样，我们第二步就完成了，接着我们需要添加一个SLB，这里我们用Nginx做反向代理：
 
@@ -595,7 +595,7 @@ db.password.0=nacos
 
 可以看到直接请求80端口之后得到，表示安装成功：
 
-![image-20220327130009391](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/47.jpg)
+![image-20220327130009391](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/47.jpg)
 
 现在我们需要让其代理我们刚刚启动的两个Nacos服务器，我们需要对其进行一些配置。配置文件位于`/etc/nginx/nginx.conf`，添加以下内容：
 
@@ -618,17 +618,17 @@ server {
 
 重启Nginx服务器，成功连接：
 
-![image-20220327144441878](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/48.jpg)
+![image-20220327144441878](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/48.jpg)
 
 然后我们将所有的服务全部修改为云服务器上Nacos的地址，启动试试看。
 
-![image-20220327145216771](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/49.jpg)
+![image-20220327145216771](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/49.jpg)
 
 这样，我们就搭建好了Nacos集群。
 
 ***
 
-![image-20220327153016414](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/50.jpg)
+![image-20220327153016414](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/50.jpg)
 
 ## Sentinel 流量防卫兵
 
@@ -651,19 +651,19 @@ Sentinel 具有以下特征:
 
 和Nacos一样，它是独立安装和部署的，下载地址：https://github.com/alibaba/Sentinel/releases
 
-![image-20220327154616456](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/51.jpg)
+![image-20220327154616456](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/51.jpg)
 
 注意下载下来之后是一个`jar`文件（其实就是个SpringBoot项目），我们需要在IDEA中添加一些运行配置：
 
-![image-20220327163002399](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/52.jpg)
+![image-20220327163002399](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/52.jpg)
 
 接着就可以直接启动啦，当然默认端口占用8080，如果需要修改，可以添加环境变量：
 
-![image-20220327163110733](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/53.jpg)
+![image-20220327163110733](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/53.jpg)
 
 启动之后，就可以访问到Sentinel的监控页面了，用户名和密码都是`sentinel`，地址：http://localhost:8858/#/dashboard
 
-![image-20220327163206117](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/54.jpg)
+![image-20220327163206117](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/54.jpg)
 
 这样就成功开启监控页面了，接着我们需要让我们的服务连接到Sentinel控制台，老规矩，导入依赖：
 
@@ -692,9 +692,9 @@ spring:
 
 现在启动我们的服务，然后访问一次服务，这样Sentinel中就会存在信息了（懒加载机制，不会一上来就加载）：
 
-![image-20220327164111325](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/55.jpg)
+![image-20220327164111325](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/55.jpg)
 
-![image-20220327164336877](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/56.jpg)
+![image-20220327164336877](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/56.jpg)
 
 现在我们就可以在Sentinel控制台中对我们的服务运行情况进行实时监控了，可以看到监控的内容非常的多，包括时间点、QPS(每秒查询率)、响应时间等数据。
 
@@ -718,7 +718,7 @@ spring:
 
    顾名思义，就像一个桶开了一个小孔，水流进桶中的速度肯定是远大于水流出桶的速度的，这也是最简单的一种限流思路：
 
-   ![image-20220327172014949](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/57.jpg)
+   ![image-20220327172014949](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/57.jpg)
 
    我们知道，桶是有容量的，所以当桶的容量已满时，就装不下水了，这时就只有丢弃请求了。
 
@@ -728,7 +728,7 @@ spring:
 
    只能说有点像信号量机制。现在有一个令牌桶，这个桶是专门存放令牌的，每隔一段时间就向桶中丢入一个令牌（速度由我们指定）当新的请求到达时，将从桶中删除令牌，接着请求就可以通过并给到服务，但是如果桶中的令牌数量不足，那么不会删除令牌，而是让此数据包等待。
 
-   ![image-20220327173323339](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/58.jpg)
+   ![image-20220327173323339](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/58.jpg)
 
    可以试想一下，当流量下降时，令牌桶中的令牌会逐渐积累，这样如果突然出现高并发，那么就能在短时间内拿到大量的令牌。
 
@@ -736,7 +736,7 @@ spring:
 
    我们可以对某一个时间段内的请求进行统计和计数，比如在`14:15`到`14:16`这一分钟内，请求量不能超过`100`，也就是一分钟之内不能超过`100`次请求，那么就可以像下面这样进行划分：
 
-   ![image-20220327174027199](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/59.jpg)
+   ![image-20220327174027199](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/59.jpg)
 
    虽然这种模式看似比较合理，但是试想一下这种情况：
 
@@ -751,13 +751,13 @@ spring:
 
    相对于固定窗口算法，滑动时间窗口算法更加灵活，它会动态移动窗口，重新进行计算：
 
-   ![image-20220327174906227](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/60.jpg)
+   ![image-20220327174906227](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/60.jpg)
 
    虽然这样能够避免固定时间窗口的临界问题，但是这样显然是比固定窗口更加耗时的。
 
 好了，了解完了我们的限流策略和判定方法之后，我们在Sentinel中进行实际测试一下，打开管理页面的簇点链路模块：
 
-![image-20220327175131519](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/61.jpg)
+![image-20220327175131519](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/61.jpg)
 
 这里演示对我们的借阅接口进行限流，点击`流控`，会看到让我们添加流控规则：
 
@@ -767,7 +767,7 @@ spring:
 
 这里我们选择`QPS`、阈值设定为`1`，流控模式选择`直接`、流控效果选择`快速失败`，可以看到，当我们快速地进行请求时，会直接返回失败信息：
 
-![image-20220327175821941](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/62.jpg)
+![image-20220327175821941](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/62.jpg)
 
 这里各位最好自行尝试一下其他的流控效果，熟悉和加深印象。
 
@@ -779,15 +779,15 @@ spring:
 
 我们首先来看看关联，比如现在我们对自带的`/error`接口进行限流：
 
-![image-20220327182851278](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/63.jpg)
+![image-20220327182851278](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/63.jpg)
 
 注意限流是作用于关联资源的，一旦发现关联资源超过阈值，那么就会对当前的资源进行限流，我们现在来测试一下，这里使用PostMan的Runner连续对关联资源发起请求：
 
-![image-20220327183241316](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/64.jpg)
+![image-20220327183241316](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/64.jpg)
 
 开启Postman，然后我们会发现借阅服务已经凉凉：
 
-![image-20220327183331595](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/65.jpg)
+![image-20220327183331595](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/65.jpg)
 
 当我们关闭掉Postman的任务后，恢复正常。
 
@@ -857,19 +857,19 @@ spring:
 
 然后我们在Sentinel控制台中添加流控规则，注意是针对此方法，可以看到已经自动识别到borrow接口下调用了这个方法：
 
-![image-20220328112645048](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/66.jpg)
+![image-20220328112645048](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/66.jpg)
 
 最后我们在浏览器中对这两个接口都进行测试，会发现，无论请求哪个接口，只要调用了Service中的`getUserBorrowDetailByUid`这个方法，都会被限流。注意限流的形式是后台直接抛出异常，至于怎么处理我们后面再说。
 
 那么这个链路选项实际上就是决定只限流从哪个方向来的调用，比如我们只对`borrow2`这个接口对`getUserBorrowDetailByUid`方法的调用进行限流，那么我们就可以为其指定链路：
 
-![image-20220328112949894](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/67.jpg)
+![image-20220328112949894](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/67.jpg)
 
 然后我们会发现，限流效果只对我们配置的链路接口有效，而其他链路是不会被限流的。
 
 除了直接对接口进行限流规则控制之外，我们也可以根据当前系统的资源使用情况，决定是否进行限流：
 
-![image-20220328235217680](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/68.jpg)
+![image-20220328235217680](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/68.jpg)
 
 系统规则支持以下的模式：
 
@@ -912,7 +912,7 @@ spring:
 
 这样，当被限流时，就会被重定向到指定页面：
 
-![image-20220328153755461](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/69.jpg)
+![image-20220328153755461](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/69.jpg)
 
 那么，对于方法级别的限流呢？经过前面的学习我们知道，当某个方法被限流时，会直接在后台抛出异常，那么这种情况我们该怎么处理呢，比如我们之前在Hystrix中可以直接添加一个替代方案，这样当出现异常时会直接执行我们的替代方法并返回，Sentinel也可以。
 
@@ -939,7 +939,7 @@ public UserBorrowDetail blocked(int uid, BlockException e) {
 
 可以看到，一旦被限流将执行替代方案，最后返回的结果就是：
 
-![image-20220328154430549](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/70.jpg)
+![image-20220328154430549](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/70.jpg)
 
 注意`blockHandler`只能处理限流情况下抛出的异常，包括下面即将要介绍的热点参数限流也是同理，如果是方法本身抛出的其他类型异常，不在管控范围内，但是可以通过其他参数进行处理：
 
@@ -960,7 +960,7 @@ String except(Throwable t){
 
 这样，其他的异常也可以有替代方案了：
 
-![image-20220328161940219](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/71.jpg)
+![image-20220328161940219](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/71.jpg)
 
 特别注意这种方式会在没有配置`blockHandler`的情况下，将Sentinel机制内（也就是限流的异常）的异常也一并处理了，如果配置了`blockHandler`，那么在出现限流时，依然只会执行`blockHandler`指定的替代方案（因为限流是在方法执行之前进行的）
 
@@ -988,21 +988,21 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
 启动之后，我们在Sentinel里面进行热点配置：
 
-![image-20220328145654180](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/72.jpg)
+![image-20220328145654180](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/72.jpg)
 
 然后开始访问我们的测试接口，可以看到在携带参数a时，当访问频率超过设定值，就会直接被限流，这里是直接在后台抛出异常：
 
-![image-20220328145726479](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/73.jpg)
+![image-20220328145726479](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/73.jpg)
 
-![image-20220328145851133](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/74.jpg)
+![image-20220328145851133](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/74.jpg)
 
 而我们使用其他参数或是不带`a`参数，那么就不会出现这种问题了：
 
-![image-20220328145838378](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/75.jpg)
+![image-20220328145838378](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/75.jpg)
 
 除了直接对某个参数精准限流外，我们还可以对参数携带的指定值单独设定阈值，比如我们现在不仅希望对参数`a`限流，而且还希望当参数`a`的值为10时，QPS达到5再进行限流，那么就可以设定例外：
 
-![image-20220328150138096](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/76.jpg)
+![image-20220328150138096](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/76.jpg)
 
 这样，当请求携带参数`a`，且参数`a`的值为10时，阈值将按照我们指定的特例进行计算。
 
@@ -1010,7 +1010,7 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
 还记得我们前所说的服务降级吗，也就是说我们需要在整个微服务调用链路出现问题的时候，及时对服务进行降级，以防止问题进一步恶化。
 
-![image-20220324141706946](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/77.jpg)
+![image-20220324141706946](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/77.jpg)
 
 那么，各位是否有思考过，如果在某一时刻，服务B出现故障（可能就卡在那里了），而这时服务A依然有大量的请求，在调用服务B，那么，由于服务A没办法再短时间内完成处理，新来的请求就会导致线程数不断地增加，这样，CPU的资源很快就会被耗尽。
 
@@ -1020,7 +1020,7 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
    线程池隔离实际上就是对每个服务的远程调用单独开放线程池，比如服务A要调用服务B，那么只基于固定数量的线程池，这样即使在短时间内出现大量请求，由于没有线程可以分配，所以就不会导致资源耗尽了。
 
-   ![image-20220328121932455](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/78.jpg)
+   ![image-20220328121932455](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/78.jpg)
 
 2. **信号量隔离**
 
@@ -1030,7 +1030,7 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
 好了，说回我们的熔断和降级，当下游服务因为某种原因变得不可用或响应过慢时，上游服务为了保证自己整体服务的可用性，不再继续调用目标服务而是快速返回或是执行自己的替代方案，这便是服务降级。
 
-![image-20220328124619289](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/79.jpg)
+![image-20220328124619289](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/79.jpg)
 
 整个过程分为三个状态：
 
@@ -1040,7 +1040,7 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
 那么我们来看看Sentinel中如何进行熔断和降级操作，打开管理页面，我们可以自由新增熔断规则：
 
-![image-20220328125115760](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/80.jpg)
+![image-20220328125115760](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/80.jpg)
 
 其中，熔断策略有三种模式：
 
@@ -1058,11 +1058,11 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
    重启，然后我们创建一个新的熔断规则：
 
-   ![image-20220328131105084](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/81.jpg)
+   ![image-20220328131105084](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/81.jpg)
 
    可以看到，超时直接触发了熔断，进入到阻止页面：
 
-   ![image-20220328131018951](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/82.jpg)
+   ![image-20220328131018951](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/82.jpg)
 
 2. **异常比例：**这个与慢调用比例类似，不过这里判断的是出现异常的次数，与上面一样，我们也来进行一些小测试：
 
@@ -1075,21 +1075,21 @@ String findUserBorrows2(@RequestParam(value = "a", required = false) int a,
 
    启动服务器，接着添加我们的熔断规则：
 
-   ![image-20220328132443315](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/83.jpg)
+   ![image-20220328132443315](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/83.jpg)
 
    现在我们进行访问，会发现后台疯狂报错，然后就熔断了：
 
-   ![image-20220328132815856](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/84.jpg)
+   ![image-20220328132815856](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/84.jpg)
 
-   ![image-20220328132804164](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/85.jpg)
+   ![image-20220328132804164](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/85.jpg)
 
 3. **异常数：**这个和上面的唯一区别就是，只要达到指定的异常数量，就熔断，这里我们修改一下熔断规则：
 
-   ![image-20220328132927745](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/86.jpg)
+   ![image-20220328132927745](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/86.jpg)
 
    现在我们再次不断访问此接口，可以发现，效果跟之前其实是差不多的，只是判断的策略稍微不同罢了：
 
-   ![image-20220328132804164](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/85.jpg)
+   ![image-20220328132804164](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/85.jpg)
 
 那么熔断规则如何设定我们了解了，那么，如何自定义服务降级呢？之前在使用Hystrix的时候，如果出现异常，可以执行我们的替代方案，Sentinel也是可以的。
 
@@ -1109,11 +1109,11 @@ UserBorrowDetail test(int uid, BlockException e){
 
 接着我们对进行熔断配置，注意是对我们添加的`@SentinelResource`中指定名称的`findUserBorrows2`进行配置：
 
-![image-20220328160248977](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/88.jpg)
+![image-20220328160248977](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/88.jpg)
 
 OK，可以看到熔断之后，服务降级之后的效果：
 
-![image-20220328160112038](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/89.jpg)
+![image-20220328160112038](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/89.jpg)
 
 最后我们来看一下如何让Feign的也支持Sentinel，前面我们使用Hystrix的时候，就可以直接对Feign的每个接口调用单独进行服务降级，而使用Sentinel，也是可以的，首先我们需要在配置文件中开启支持：
 
@@ -1139,7 +1139,7 @@ public class UserClientFallback implements UserClient{
 
 然后直接启动就可以了，中途的时候我们吧用户服务全部下掉，可以看到正常使用替代方案：
 
-![image-20220328165606119](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/90.jpg)
+![image-20220328165606119](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/90.jpg)
 
 这样Feign的配置就OK了，那么传统的RestTemplate呢？我们可以使用`@SentinelRestTemplate`注解实现：
 
@@ -1157,7 +1157,7 @@ public class UserClientFallback implements UserClient{
 
 ***
 
-![image-20220329112537891](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/91.jpg)
+![image-20220329112537891](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/91.jpg)
 
 ## Seata与分布式事务
 
@@ -1172,13 +1172,13 @@ public class UserClientFallback implements UserClient{
 
 那么各位试想一下，在分布式环境下，有可能出现这样一个问题，比如我们下单购物，那么整个流程可能是这样的：先调用库存服务对库存进行减扣 -> 然后订单服务开始下单 -> 最后用户账户服务进行扣款，虽然看似是一个很简单的一个流程，但是如果没有事务的加持，很有可能会由于中途出错，比如整个流程中订单服务出现问题，那么就会导致库存扣了，但是实际上这个订单并没有生成，用户也没有付款。
 
-![image-20220329111304542](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/92.jpg)
+![image-20220329111304542](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/92.jpg)
 
 上面这种情况时间就是一种多服务多数据源的分布式事务模型（比较常见），因此，为了解决这种情况，我们就得实现分布式事务，让这整个流程保证原子性。
 
 SpringCloud Alibaba为我们提供了用于处理分布式事务的组件Seata。
 
-![image-20220329113049408](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/93.jpg)
+![image-20220329113049408](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/93.jpg)
 
 Seata 是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata 将为用户提供了 AT、TCC、SAGA 和 XA 事务模式，为用户打造一站式的分布式解决方案。
 
@@ -1194,11 +1194,11 @@ Seata 是一款开源的分布式事务解决方案，致力于提供高性能�
 
 那么首先我们对数据库进行修改，这里为了简便，就直接在用户表中添加一个字段用于存储用户能够借阅的书籍数量：
 
-![image-20220329135048063](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/94.jpg)
+![image-20220329135048063](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/94.jpg)
 
 然后修改书籍信息，也是直接添加一个字段用于记录剩余数量：
 
-![image-20220329135307659](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/95.jpg)
+![image-20220329135307659](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/95.jpg)
 
 接着我们去编写一下对应的服务吧，首先是用户服务：
 
@@ -1441,15 +1441,15 @@ public class BorrowServiceImpl implements BorrowService{
 
 我们来测试一下：
 
-![image-20220329151445740](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/96.jpg)
+![image-20220329151445740](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/96.jpg)
 
 再次尝试借阅，后台会直接报错：
 
-![image-20220329151512871](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/97.jpg)
+![image-20220329151512871](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/97.jpg)
 
 抛出异常，但是我们发现一个问题，借阅信息添加失败了，但是图书的数量依然被-1，也就是说正常情况下，我们是希望中途出现异常之后，之前的操作全部回滚的：
 
-![image-20220329151615894](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/98.jpg)
+![image-20220329151615894](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/98.jpg)
 
 而这里由于是在另一个服务中进行的数据库操作，所以传统的`@Transactional`注解无效，这时就得借助Seata提供分布式事务了。
 
@@ -1461,7 +1461,7 @@ public class BorrowServiceImpl implements BorrowService{
 
    这里的PC实际上指的是Prepare和Commit，也就是说它分为两个阶段，一个是准备一个是提交，整个过程的参与者一共有两个角色，一个是事务的执行者，一个是事务的协调者，实际上整个分布式事务的运作都需要依靠协调者来维持：
 
-   ![image-20220331214050440](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/99.jpg)
+   ![image-20220331214050440](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/99.jpg)
 
    在准备和提交阶段，会进行：
 
@@ -1542,7 +1542,7 @@ public class BorrowServiceImpl implements BorrowService{
 
 前面我们了解了一些分布式事务的解决方案，那么我们来看一下Seata是如何进行分布式事务的处理的。
 
-![image-20220401144916943](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/100.jpg)
+![image-20220401144916943](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/100.jpg)
 
 官网给出的是这样的一个架构图，那么图中的RM、TM、TC代表着什么意思呢？
 
@@ -1565,7 +1565,7 @@ Seata支持4种事务模式，官网文档：https://seata.io/zh-cn/docs/overvie
 
 * Saga：用于处理长事务，每个执行者需要实现事务的正向操作和补偿操作：
 
-  ![image-20220401150544921](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/101.jpg)
+  ![image-20220401150544921](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/101.jpg)
 
 那么，以AT模式为例，我们的程序如何才能做到不对业务进行侵入的情况下实现分布式事务呢？实际上，Seata客户端，是通过对数据源进行代理实现的，使用的是DataSourceProxy类，所以在程序这边，我们只需要将对应的代理类注册为Bean即可（0.9版本之后支持自动进行代理，不用我们手动操作）
 
@@ -1579,7 +1579,7 @@ Seata也是以服务端形式进行部署的，然后每个服务都是客户端
 
 下载完成之后，放入到IDEA项目目录中，添加启动配置，这里端口使用8868：
 
-![image-20220331150441431](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/102.jpg)
+![image-20220331150441431](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/102.jpg)
 
 Seata服务端支持本地部署或是基于注册发现中心部署（比如Nacos、Eureka等），这里我们首先演示一下最简单的本地部署，不需要对Seata的配置文件做任何修改。
 
@@ -1673,23 +1673,23 @@ CREATE TABLE `undo_log`
 
 创建完成之后，我们现在就可以启动三个服务了，我们来测试一下当出现异常的时候是不是会正常回滚：
 
-![image-20220331153615187](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/103.jpg)
+![image-20220331153615187](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/103.jpg)
 
-![image-20220331153823961](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/104.jpg)
+![image-20220331153823961](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/104.jpg)
 
 首先第一次肯定是正常完成借阅操作的，接着我们再次进行请求，肯定会出现异常：
 
-![image-20220331153655710](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/105.jpg)
+![image-20220331153655710](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/105.jpg)
 
-![image-20220331153729453](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/106.jpg)
+![image-20220331153729453](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/106.jpg)
 
 如果能在栈追踪信息中看到seata相关的包，那么说明分布式事务已经开始工作了，通过日志我们可以看到，出现了回滚操作：
 
-![image-20220331153911759](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/107.jpg)
+![image-20220331153911759](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/107.jpg)
 
 并且数据库中确实是回滚了扣除操作：
 
-![image-20220331153852374](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/108.jpg)
+![image-20220331153852374](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/108.jpg)
 
 这样，我们就通过Seata简单地实现了分布式事务。
 
@@ -1699,7 +1699,7 @@ CREATE TABLE `undo_log`
 
 我们先单独为Seata配置一个命名空间：
 
-![image-20220331155823306](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/109.jpg)
+![image-20220331155823306](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/109.jpg)
 
 我们打开`conf`目录中的`registry.conf`配置文件：
 
@@ -1753,17 +1753,17 @@ config {
 
 接着，我们需要将配置导入到Nacos中，我们打开一开始下载的源码`script/config-center/nacos`目录，这是官方提供的上传脚本，我们直接运行即可（windows下没对应的bat就很蛋疼，可以使用git命令行来运行一下），这里我们使用这个可交互的版本：
 
-![image-20220331160748379](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/110.jpg)
+![image-20220331160748379](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/110.jpg)
 
 按照提示输入就可以了，不输入就使用的默认值，不知道为啥最新版本有四个因为参数过长还导入失败了，就离谱，不过不影响。
 
 导入成功之后，可以在对应的命名空间下看到对应的配置（为啥非要一个一个配置项单独搞，就不能写一起吗）：
 
-![image-20220331160918380](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/111.jpg)
+![image-20220331160918380](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/111.jpg)
 
 注意，还没完，我们还需要将对应的事务组映射配置也添加上，DataId格式为`service.vgroupMapping.事务组名称`，比如我们就使用默认的名称，值全部依然使用default即可：
 
-![image-20220331161119169](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/112.jpg)
+![image-20220331161119169](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/112.jpg)
 
 现在我们就完成了服务端的Nacos配置，接着我们需要对客户端也进行Nacos配置：
 
@@ -1789,19 +1789,19 @@ seata:
 
 现在我们就可以启动这三个服务了，可以在Nacos中看到Seata以及三个服务都正常注册了：
 
-![image-20220331162215864](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/113.jpg)
+![image-20220331162215864](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/113.jpg)
 
-![image-20220331162241748](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/114.jpg)
+![image-20220331162241748](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/114.jpg)
 
 接着我们就可以访问一下服务试试看了：
 
-![image-20220331162601073](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/115.jpg)
+![image-20220331162601073](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/115.jpg)
 
 可以看到效果和上面是一样的，不过现在我们的注册和配置都继承在Nacos中进行了。
 
 我们还可以配置一下事务会话信息的存储方式，默认是file类型，那么就会在运行目录下创建`file_store`目录，我们可以将其搬到数据库中存储，只需要修改一下配置即可：
 
-![image-20220331162840368](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/116.jpg)
+![image-20220331162840368](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/116.jpg)
 
 将`store.session.mode`和`store.mode`的值修改为`db`
 
@@ -1813,7 +1813,7 @@ seata:
 
 其他的默认即可：
 
-![image-20220331163100436](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/117.jpg)
+![image-20220331163100436](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/117.jpg)
 
 接着我们需要将对应的数据库进行创建，创建seata数据库，然后直接CV以下语句：
 
@@ -1889,21 +1889,21 @@ CREATE TABLE IF NOT EXISTS `distributed_lock`
 INSERT INTO `distributed_lock` (lock_key, lock_value, expire) VALUES ('HandleAllSession', ' ', 0);
 ```
 
-![image-20220331163823920](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/118.jpg)
+![image-20220331163823920](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/118.jpg)
 
 完成之后，重启Seata服务端即可：
 
-![image-20220331164449635](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/119.jpg)
+![image-20220331164449635](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/119.jpg)
 
 看到了数据源初始化成功，现在已经在使用数据库进行会话存储了。
 
 如果Seata服务端出现报错，可能是我们自定义事务组的名称太长了：
 
-![image-20220331165020756](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/120.jpg)
+![image-20220331165020756](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/120.jpg)
 
 将`globle_table`表的字段`transaction_server_group`长度适当增加一下即可：
 
-![image-20220331165103414](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（二）/121.jpg)
+![image-20220331165103414](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（二）/121.jpg)
 
 到此，关于基于nacos模式下的Seata部署，就完成了。
 

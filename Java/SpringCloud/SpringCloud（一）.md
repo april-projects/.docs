@@ -1,4 +1,4 @@
-![image-20220317173734208](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/0.jpg)
+![image-20220317173734208](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/0.jpg)
 
 # 微服务基础
 
@@ -18,7 +18,7 @@
 
 可以试想一下，如果我们的电脑已经升级到i9-12900K，但是依然在运行项目的时候缓慢，无法同一时间响应成千上万的请求，那么这个问题就已经不是单纯升级机器配置可以解决的了。
 
-![image-20220320174622739](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/1.jpg)
+![image-20220320174622739](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/1.jpg)
 
 传统单体架构应用随着项目规模的扩大，实际上会暴露越来越多的问题，尤其是一台服务器无法承受庞大的单体应用部署，并且单体应用的维护也会越来越困难，我们得寻找一种新的开发架构来解决这些问题了。
 
@@ -32,7 +32,7 @@ Martin Fowler在2014年提出了“微服务”架构，它是一种全新的架
 * 我们可以同时购买多台主机来分别部署这些微服务，这样，单机的压力就被分散到多台机器，并且每台机器的配置不一定需要太高，这样就能节省大量的成本，同时安全性也得到很大的保证。
 * 甚至同一个微服务可以同时存在多个，这样当其中一个服务器出现问题时，其他服务器也在运行同样的微服务，这样就可以保证一个微服务的高可用。
 
-![image-20220322090754438](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/2.jpg)
+![image-20220322090754438](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/2.jpg)
 
 当然，这里只是简单的演示一下微服务架构，实际开发中肯定是比这个复杂得多的。
 
@@ -52,7 +52,7 @@ SpringCloud是Spring提供的一套分布式解决方案，集合了一些大型
 
 由于中小型公司没有独立开发自己的分布式基础设施的能力，使用SpringCloud解决方案能够以最低的成本应对当前时代的业务发展。
 
-![image-20220322102706256](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/3.jpg)
+![image-20220322102706256](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/3.jpg)
 
 可以看到，SpringCloud整体架构的亮点是非常明显的，分布式架构下的各个场景，都有对应的组件来处理，比如基于Netflix（奈飞）的开源分布式解决方案提供的组件：
 
@@ -86,51 +86,51 @@ SpringCloud是Spring提供的一套分布式解决方案，集合了一些大型
 
 我们首先创建一个普通的SpringBoot项目：
 
-![image-20220323105531867](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/4.jpg)
+![image-20220323105531867](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/4.jpg)
 
 然后不需要勾选任何依赖，直接创建即可，项目创建完成并初始化后，我们删除父工程的无用文件，只保留必要文件，像下面这样：
 
-![image-20220323105859454](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/5.jpg)
+![image-20220323105859454](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/5.jpg)
 
 接着我们就可以按照我们划分的服务，进行子工程创建了，创建一个新的Maven项目，注意父项目要指定为我们一开始创建的的项目，子项目命名随意：
 
-![image-20220323110133466](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/6.jpg)
+![image-20220323110133466](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/6.jpg)
 
 子项目创建好之后，接着我们在子项目中创建SpringBoot的启动主类：
 
-![image-20220323110756722](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/7.jpg)
+![image-20220323110756722](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/7.jpg)
 
 接着我们点击运行，即可启动子项目了，实际上这个子项目就一个最简单的SpringBoot web项目，注意启动之后最下方有弹窗，我们点击"使用 服务"，这样我们就可以实时查看当前整个大项目中有哪些微服务了：
 
-![image-20220323110917997](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/8.jpg)
+![image-20220323110917997](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/8.jpg)
 
-![image-20220323111056940](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/9.jpg)
+![image-20220323111056940](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/9.jpg)
 
 接着我们以同样的方法，创建其他的子项目，注意我们最好将其他子项目的端口设置得不一样，不然会导致端口占用，我们分别为它们创建`application.yml`文件：
 
-![image-20220323111733605](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/10.jpg)
+![image-20220323111733605](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/10.jpg)
 
 接着我们来尝试启动一下这三个服务，正常情况下都是可以直接启动的：
 
-![image-20220323111849846](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/11.jpg)
+![image-20220323111849846](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/11.jpg)
 
 可以看到它们分别运行在不同的端口上，这样，就方便不同的程序员编写不同的服务了，提交当前项目代码时的冲突率也会降低。
 
 接着我们来创建一下数据库，这里还是老样子，创建三个表即可，当然实际上每个微服务单独使用一个数据库服务器也是可以的，因为按照单一职责服务只会操作自己对应的表，这里UP主比较穷，就只用一个数据库演示了：
 
-![image-20220323112340995](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/12.jpg)
+![image-20220323112340995](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/12.jpg)
 
-![image-20220323112616538](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/13.jpg)
+![image-20220323112616538](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/13.jpg)
 
-![image-20220323112842758](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/14.jpg)
+![image-20220323112842758](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/14.jpg)
 
-![image-20220323112750936](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/15.jpg)
+![image-20220323112750936](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/15.jpg)
 
-![image-20220323112825430](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/16.jpg)
+![image-20220323112825430](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/16.jpg)
 
 创建好之后，结果如下，一共三张表，各位可以自行添加一些数据到里面，这就不贴出来了：
 
-![image-20220323112922396](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/17.jpg)
+![image-20220323112922396](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/17.jpg)
 
 如果各位嫌麻烦的话可以下载`.sql`文件自行导入。
 
@@ -240,7 +240,7 @@ public class UserController {
 
 现在我们访问即可拿到数据：
 
-![image-20220323133820304](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/18.jpg)
+![image-20220323133820304](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/18.jpg)
 
 同样的方式，我们完成一下图书查询业务，注意现在是在图书管理微服务中编写（别忘了导入Mybatis依赖以及配置数据源）：
 
@@ -298,7 +298,7 @@ public class BookController {
 
 同样进行一下测试：
 
-![image-20220323134742618](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/19.jpg)
+![image-20220323134742618](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/19.jpg)
 
 这样，我们一个完整项目的就拆分成了多个微服务，不同微服务之间是独立进行开发和部署的。
 
@@ -308,11 +308,11 @@ public class BookController {
 
 借阅服务是一个关联性比较强的服务，它不仅仅需要查询借阅信息，同时可能还需要获取借阅信息下的详细信息，比如具体那个用户借阅了哪本书，并且用户和书籍的详情也需要同时出现，那么这种情况下，我们就需要去访问除了借阅表以外的用户表和图书表。
 
-![image-20220323140053749](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/20.jpg)
+![image-20220323140053749](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/20.jpg)
 
 但是这显然是违反我们之前所说的单一职责的，相同的业务功能不应该重复出现，但是现在由需要在此服务中查询用户的信息和图书信息，那怎么办呢？我们可以让一个服务去调用另一个服务来获取信息。
 
-![image-20220323140322502](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/21.jpg)
+![image-20220323140322502](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/21.jpg)
 
 这样，图书管理微服务和用户管理微服务相对于借阅记录，就形成了一个生产者和消费者的关系，前者是生产者，后者便是消费者。
 
@@ -356,7 +356,7 @@ public class UserBorrowDetail {
 
 因此，我们可以将所有服务需要用到的实体类单独放入另一个一个项目中，然后让这些项目引用集中存放实体类的那个项目，这样就可以保证每个微服务的实体类信息都可以共用了：
 
-![image-20220323141919836](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/22.jpg)
+![image-20220323141919836](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/22.jpg)
 
 然后只需要在对应的类中引用此项目作为依赖即可：
 
@@ -437,7 +437,7 @@ public class BorrowController {
 
 在数据库中添加一点借阅信息，测试看看能不能正常获取（注意一定要保证三个服务都处于开启状态，否则远程调用会失败）：
 
-![image-20220323143753567](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/23.jpg)
+![image-20220323143753567](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/23.jpg)
 
 可以看到，结果正常，没有问题，远程调用成功。
 
@@ -449,7 +449,7 @@ public class BorrowController {
 
 Eureka能够自动注册并发现微服务，然后对服务的状态、信息进行集中管理，这样当我们需要获取其他服务的信息时，我们只需要向Eureka进行查询就可以了。
 
-![image-20220323145051821](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/24.jpg)
+![image-20220323145051821](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/24.jpg)
 
 像这样的话，服务之间的强关联性就会被进一步削弱。
 
@@ -510,7 +510,7 @@ eureka:
 
 好了，现在差不多可以启动了，启动完成后，直接输入地址+端口即可访问Eureka的管理后台：
 
-![image-20220323152537322](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/25.jpg)
+![image-20220323152537322](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/25.jpg)
 
 可以看到目前还没有任何的服务注册到Eureka，我们接着来配置一下我们的三个微服务，首先还是需要导入Eureka依赖（注意别导错了，名称里面有个starter的才是）：
 
@@ -533,7 +533,7 @@ eureka:
 
 OK，无需在启动类添加注解，直接启动就可以了，然后打开Eureka的服务管理页面，可以看到我们刚刚开启的服务：
 
-![image-20220323154722373](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/26.jpg)
+![image-20220323154722373](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/26.jpg)
 
 可以看到`8082`端口上的服务器，已经成功注册到Eureka了，但是这个服务名称怎么会显示为UNKNOWN，我们需要修改一下：
 
@@ -543,13 +543,13 @@ spring:
     name: userservice
 ```
 
-![image-20220323155305545](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/27.jpg)
+![image-20220323155305545](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/27.jpg)
 
 当我们的服务启动之后，会每隔一段时间跟Eureka发送一次心跳包，这样Eureka就能够感知到我们的服务是否处于正常运行状态。
 
 现在我们用同样的方法，将另外两个微服务也注册进来：
 
-![image-20220323155948425](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/28.jpg)
+![image-20220323155948425](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/28.jpg)
 
 那么，现在我们怎么实现服务发现呢？
 
@@ -602,19 +602,19 @@ public class BeanConfig {
 
 现在我们就可以正常调用了：
 
-![image-20220323161809122](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/29.jpg)
+![image-20220323161809122](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/29.jpg)
 
 不对啊，不是说有负载均衡的能力吗，怎么个负载均衡呢？
 
 我们先来看看，同一个服务器实际上是可以注册很多个的，但是它们的端口不同，比如我们这里创建多个用户查询服务，我们现在将原有的端口配置修改一下，由IDEA中设定启动参数来决定，这样就可以多创建几个不同端口的启动项了：
 
-![image-20220323162858616](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/30.jpg)
+![image-20220323162858616](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/30.jpg)
 
-![image-20220323162926482](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/31.jpg)
+![image-20220323162926482](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/31.jpg)
 
 可以看到，在Eureka中，同一个服务出现了两个实例：
 
-![image-20220323163010052](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/32.jpg)
+![image-20220323163010052](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/32.jpg)
 
 现在我们稍微修改一下用户查询，然后进行远程调用，看看请求是不是均匀地分配到这两个服务端：
 
@@ -633,13 +633,13 @@ public class UserController {
 }
 ```
 
-![image-20220323163335257](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/33.jpg)
+![image-20220323163335257](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/33.jpg)
 
 可以看到，两个实例都能够均匀地被分配请求：
 
-![image-20220323163448765](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/34.jpg)
+![image-20220323163448765](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/34.jpg)
 
-![image-20220323163457877](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/35.jpg)
+![image-20220323163457877](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/35.jpg)
 
 这样，服务自动发现以及简单的负载均衡就实现完成了，并且，如果某个微服务挂掉了，只要存在其他同样的微服务实例在运行，那么就不会导致整个微服务不可用，极大地保证了安全性。
 
@@ -649,7 +649,7 @@ public class UserController {
 
 为了避免，这种问题，我们也可以像上面那样，搭建Eureka集群，存在多个Eureka服务器，这样就算挂掉其中一个，其他的也还在正常运行，就不会使得服务注册与发现不可用。当然，要是物理黑客直接炸了整个机房，那还是算了吧。
 
-![image-20220323205531185](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/36.jpg)
+![image-20220323205531185](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/36.jpg)
 
 我们来看看如何搭建Eureka集群，这里由于机器配置不高，就搭建两个Eureka服务器组成集群。
 
@@ -691,17 +691,17 @@ eureka:
 
 这里由于我们修改成自定义的地址，需要在hosts文件中将其解析到172.0.0.1才能回到localhost，Mac下文件路径为`/etc/hosts`，Windows下为`C:\Windows\system32\drivers\etc\hosts`：
 
-![image-20220323210218653](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/37.jpg)
+![image-20220323210218653](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/37.jpg)
 
 对创建的两个配置文件分别添加启动配置，直接使用`spring.profiles.active`指定启用的配置文件即可：
 
-![image-20220323212308857](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/38.jpg)
+![image-20220323212308857](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/38.jpg)
 
 接着启动这两个注册中心，这两个Eureka管理页面都可以被访问，我们访问其中一个：
 
-![image-20220323210937341](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/39.jpg)
+![image-20220323210937341](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/39.jpg)
 
-![image-20220323210619533](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/40.jpg)
+![image-20220323210619533](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/40.jpg)
 
 可以看到下方`replicas`中已经包含了另一个Eureka服务器的地址，并且是可用状态。
 
@@ -717,11 +717,11 @@ eureka:
 
 可以看到，服务全部成功注册，并且两个Eureka服务端都显示为已注册：
 
-![image-20220323211032311](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/41.jpg)
+![image-20220323211032311](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/41.jpg)
 
 接着我们模拟一下，将其中一个Eureka服务器关闭掉，可以看到它会直接变成不可用状态：
 
-![image-20220323211354516](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/42.jpg)
+![image-20220323211354516](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/42.jpg)
 
 当然，如果这个时候我们重启刚刚关闭的Eureka服务器，会自动同步其他Eureka服务器的数据。
 
@@ -759,9 +759,9 @@ public ClientHttpResponse intercept(final HttpRequest request, final byte[] body
 
 我们可以打个断点看看实际是怎么在执行的，可以看到：
 
-![image-20220323220519463](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/43.jpg)
+![image-20220323220519463](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/43.jpg)
 
-![image-20220323220548051](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/44.jpg)
+![image-20220323220548051](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/44.jpg)
 
 服务端会在发起请求时执行这些拦截器。
 
@@ -795,7 +795,7 @@ public <T> T execute(String serviceId, LoadBalancerRequest<T> request) throws IO
 
 所以，实际上在进行负载均衡的时候，会向Eureka发起请求，选择一个可用的对应服务，然后会返回此服务的主机地址等信息：
 
-![image-20220324120741736](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/45.jpg)
+![image-20220324120741736](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/45.jpg)
 
 ### 自定义负载均衡策略
 
@@ -834,9 +834,9 @@ public class BeanConfig {
 
 接着我们在`BlockingLoadBalancerClient`中添加断点，观察是否采用我们指定的策略进行请求：
 
-![image-20220324221750289](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/46.jpg)
+![image-20220324221750289](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/46.jpg)
 
-![image-20220324221713964](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/47.jpg)
+![image-20220324221713964](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/47.jpg)
 
 发现访问userservice服务的策略已经更改为我们指定的策略了。
 
@@ -914,13 +914,13 @@ public UserBorrowDetail getUserBorrowDetailByUid(int uid) {
 
 访问，可以看到结果依然是正确的：
 
-![image-20220324181614387](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/48.jpg)
+![image-20220324181614387](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/48.jpg)
 
 并且我们可以观察一下两个用户微服务的调用情况，也是以负载均衡的形式进行的。
 
 按照同样的方法，我们接着将图书管理服务的调用也改成接口形式：
 
-![image-20220324181740566](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/49.jpg)
+![image-20220324181740566](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/49.jpg)
 
 最后我们的Service代码就变成了：
 
@@ -953,7 +953,7 @@ public class BorrowServiceImpl implements BorrowService {
 
 继续访问进行测试：
 
-![image-20220324181910173](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/50.jpg)
+![image-20220324181910173](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/50.jpg)
 
 OK，正常。
 
@@ -967,11 +967,11 @@ OK，正常。
 
 我们知道，微服务之间是可以进行相互调用的，那么如果出现了下面的情况会导致什么问题？
 
-![image-20220324141230070](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/51.jpg)
+![image-20220324141230070](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/51.jpg)
 
 由于位于最底端的服务提供者E发生故障，那么此时会直接导致服务ABCD全线崩溃，就像雪崩了一样。
 
-![image-20220324141706946](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/52.jpg)
+![image-20220324141706946](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/52.jpg)
 
 这种问题实际上是不可避免的，由于多种因素，比如网络卡顿、系统故障、硬件问题等，都存在一定可能，会导致这种极端的情况发生。因此，我们需要寻找一个应对这种极端情况的解决方案。
 
@@ -1032,9 +1032,9 @@ public class BorrowController {
 
 可以看到，虽然我们的服务无法正常运行了，但是依然可以给浏览器正常返回响应数据：
 
-![image-20220324150253610](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/53.jpg)
+![image-20220324150253610](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/53.jpg)
 
-![image-20220324150310955](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/54.jpg)
+![image-20220324150310955](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/54.jpg)
 
 服务降级是一种比较温柔的解决方案，虽然服务本身的不可用，但是能够保证正常响应数据。
 
@@ -1069,13 +1069,13 @@ public class BorrowController {
 
 接着，我们在浏览器中疯狂点击刷新按钮，对此服务疯狂发起请求，可以看到后台：
 
-![image-20220324152044551](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/55.jpg)
+![image-20220324152044551](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/55.jpg)
 
 一开始的时候，会正常地去调用Controller对应的方法`findUserBorrows`，发现失败然后进入备选方法，但是我们发现在持续请求一段时间之后，没有再调用这个方法，而是直接调用备选方案，这便是升级到了熔断状态。
 
 我们可以继续不断点击，继续不断地发起请求：
 
-![image-20220324152750797](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/56.jpg)
+![image-20220324152750797](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/56.jpg)
 
 可以看到，过了一段时间之后，会尝试正常执行一次`findUserBorrows`，但是依然是失败状态，所以继续保持熔断状态。
 
@@ -1083,13 +1083,13 @@ public class BorrowController {
 
 我们可以测试一下，开启另外两个服务之后，继续点击：
 
-![image-20220324153044583](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/57.jpg)
+![image-20220324153044583](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/57.jpg)
 
 可以看到，当另外两个服务正常运行之后，当再次尝试调用`findUserBorrows`之后会成功，于是熔断机制就关闭了，服务恢复运行。
 
 总结一下：
 
-![image-20220324153935858](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/58.jpg)
+![image-20220324153935858](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/58.jpg)
 
 ### OpenFeign实现降级
 
@@ -1149,9 +1149,9 @@ feign:
 
 启动服务，调用接口试试看：
 
-![image-20220325122629016](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/59.jpg)
+![image-20220325122629016](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/59.jpg)
 
-![image-20220325122301779](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/60.jpg)
+![image-20220325122301779](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/60.jpg)
 
 可以看到，现在已经采用我们的替代方案作为结果。
 
@@ -1203,7 +1203,7 @@ public class HystrixDashBoardApplication {
 
 添加此依赖后，我们可以在IDEA中查看运行情况：
 
-![image-20220324225633805](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/61.jpg)
+![image-20220324225633805](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/61.jpg)
 
 然后在配置文件中配置Actuator添加暴露：
 
@@ -1217,27 +1217,27 @@ management:
 
 接着我们打开刚刚启动的管理页面，地址为：http://localhost:8900/hystrix/
 
-![image-20220324225733550](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/62.jpg)
+![image-20220324225733550](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/62.jpg)
 
 在中间填写要监控的服务：比如借阅服务：http://localhost:8301/actuator/hystrix.stream，注意后面要添加`/actuator/hystrix.stream`，然后点击Monitor Stream即可进入监控页面：
 
-![image-20220324230515009](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/63.jpg)
+![image-20220324230515009](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/63.jpg)
 
 可以看到现在都是Loading状态，这是因为还没有开始统计，我们现在尝试调用几次我们的服务：
 
-![image-20220324230559068](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/64.jpg)
+![image-20220324230559068](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/64.jpg)
 
 可以看到，在调用之后，监控页面出现了信息：
 
-![image-20220324230703600](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/65.jpg)
+![image-20220324230703600](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/65.jpg)
 
 可以看到5次访问都是正常的，所以显示为绿色，接着我们来尝试将图书服务关闭，这样就会导致服务降级甚至熔断，然后再多次访问此服务看看监控会如何变化：
 
-![image-20220324230923472](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/66.jpg)
+![image-20220324230923472](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/66.jpg)
 
 可以看到，错误率直接飙升到100%，并且一段时间内持续出现错误，中心的圆圈也变成了红色，我们继续进行访问：
 
-![image-20220324231022133](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/67.jpg)
+![image-20220324231022133](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/67.jpg)
 
 在出现大量错误的情况下保持持续访问，可以看到此时已经将服务熔断，`Circuit`更改为Open状态，并且图中的圆圈也变得更大，表示压力在持续上升。
 
@@ -1251,13 +1251,13 @@ management:
 
 我们知道，如果我们需要连接互联网，那么就需要将手机或是电脑连接到家里的路由器才可以，而路由器则连接光猫，光猫再通过光纤连接到互联网，也就是说，互联网方向发送过来的数据，需要经过路由器才能到达我们的设备。而路由器充当的就是数据包中转站，所有的局域网设备都无法直接与互联网连接，而是需要经过路由器进行中转，我们一般说路由器下的网络是内网，而互联网那一端是外网。
 
-![image-20220324164439809](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/68.jpg)
+![image-20220324164439809](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/68.jpg)
 
 我们的局域网设备，无法被互联网上的其他设备直接访问，肯定是能够保证到安全性的。并互联网发送过来的数据，需要经过路由器进行解析，识别到底是哪一个设备的数据包，然后再发送给对应的设备。
 
 而我们的微服务也是这样，一般情况下，可能并不是所有的微服务都需要直接暴露给外部调用，这时我们就可以使用路由机制，添加一层防护，让所有的请求全部通过路由来转发到各个微服务，并且转发给多个相同微服务实例也可以实现负载均衡。
 
-![image-20220325130147758](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/69.jpg)
+![image-20220325130147758](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/69.jpg)
 
 在之前，路由的实现一般使用Zuul，但是已经停更，而现在新出现了由SpringCloud官方开发的Gateway路由，它相比Zuul不仅性能上得到了一定的提升，并且是官方推出，契合性也会更好，所以我们这里就主要讲解Gateway。
 
@@ -1296,7 +1296,7 @@ spring:
 
 现在就可以启动了：
 
-![image-20220324170951878](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/70.jpg)
+![image-20220324170951878](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/70.jpg)
 
 但是现在还没有配置任何的路由功能，我们接着将路由功能进行配置：
 
@@ -1316,17 +1316,17 @@ spring:
 
 接着启动网关，搭载Arm架构芯片的Mac电脑可能会遇到这个问题：
 
-![image-20220325150924472](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/71.jpg)
+![image-20220325150924472](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/71.jpg)
 
 这是因为没有找到适用于此架构的动态链接库，不影响使用，无视即可，希望以后的版本能修复吧。
 
 可以看到，我们现在可以直接通过路由来访问我们的服务了：
 
-![image-20220324171724493](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/72.jpg)
+![image-20220324171724493](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/72.jpg)
 
 注意此时依然可以通过原有的服务地址进行访问：
 
-![image-20220324171909828](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/73.jpg)
+![image-20220324171909828](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/73.jpg)
 
 这样我们就可以将不需要外网直接访问的微服务全部放到内网环境下，而只依靠网关来对外进行交涉。
 
@@ -1378,9 +1378,9 @@ public class BookController {
 
 现在我们通过Gateway访问我们的图书管理服务：
 
-![image-20220325150730814](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/74.jpg)
+![image-20220325150730814](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/74.jpg)
 
-![image-20220325151220776](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/75.jpg)
+![image-20220325151220776](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/75.jpg)
 
 可以看到这里成功获取到由网关添加的请求头信息了。
 
@@ -1419,9 +1419,9 @@ public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 
 可以看到结果：
 
-![image-20220325154443063](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/76.jpg)
+![image-20220325154443063](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/76.jpg)
 
-![image-20220325154508853](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/77.jpg)
+![image-20220325154508853](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/77.jpg)
 
 成功实现规则判断和拦截操作。
 
@@ -1451,7 +1451,7 @@ public class TestFilter implements GlobalFilter, Ordered {   //实现Ordered接�
 
 > Spring Cloud Config 为分布式系统中的外部配置提供服务器端和客户端支持。使用 Config Server，您可以集中管理所有环境中应用程序的外部配置。
 
-![image-20220325171754862](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/78.jpg)
+![image-20220325171754862](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/78.jpg)
 
 实际上Spring Cloud Config就是一个配置中心，所有的服务都可以从配置中心取出配置，而配置中心又可以从GitHub远程仓库中获取云端的配置文件，这样我们只需要修改GitHub中的配置即可对所有的服务进行配置管理了。
 
@@ -1500,15 +1500,15 @@ eureka:
 
 先启动一次看看，能不能成功：
 
-![image-20220325173932623](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/79.jpg)
+![image-20220325173932623](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/79.jpg)
 
 这里我们以本地仓库为例（就不用GitHub了，卡到怀疑人生了），首先在项目目录下创建一个本地Git仓库，打开终端，在桌面上创建一个新的本地仓库：
 
-![image-20220325220843990](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/80.jpg)
+![image-20220325220843990](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/80.jpg)
 
 然后我们在文件夹中随便创建一些配置文件，注意名称最好是{服务名称}-{环境}.yml：
 
-![image-20220325221411834](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/81.jpg)
+![image-20220325221411834](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/81.jpg)
 
 然后我们在配置文件中，添加本地仓库的一些信息（远程仓库同理），详细使用教程：https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_git_backend
 
@@ -1531,11 +1531,11 @@ spring:
 
 比如我们要访问图书服务的生产环境代码，可以使用 http://localhost:8700/bookservice/prod/main 链接，它会显示详细信息：
 
-![image-20220325221946363](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/82.jpg)
+![image-20220325221946363](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/82.jpg)
 
 也可以使用 http://localhost:8700/main/bookservice-prod.yml 链接，它仅显示配置文件原文：
 
-![image-20220325222309095](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/83.jpg)
+![image-20220325222309095](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/83.jpg)
 
 当然，除了使用Git来保存之外，还支持一些其他的方式，详细情况请查阅官网。
 
@@ -1571,7 +1571,7 @@ spring:
 
 配置完成之后，启动图书服务：
 
-![image-20220325224708591](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/84.jpg)
+![image-20220325224708591](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/84.jpg)
 
 可以看到已经从远端获取到了配置，并进行启动。
 
@@ -1581,7 +1581,7 @@ spring:
 
 经过前面的学习，我们对SpringCloud Netflix以及SpringCloud官方整个生态下的组件认识也差不多了，入门教学就到此为止，下一章将开启真正精彩的正片部分，本章的最后我们还是来了解一些理论上的知识。
 
-![image-20220325230915356](https://tencent.cos.mobaijun.com/img/gitbook/Java/SpringCloud/SpringCloud（一）/85.jpg)
+![image-20220325230915356](https://tencent.cos.mobaijun.com/img/gitbook/java/SpringCloud/SpringCloud（一）/85.jpg)
 
 > CAP原则又称CAP定理，指的是在一个分布式系统中，存在Consistency（一致性）、Availability（可用性）、Partition tolerance（分区容错性），三者不可同时保证，最多只能保证其中的两者。   
 >
