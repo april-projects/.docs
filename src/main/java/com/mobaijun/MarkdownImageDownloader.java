@@ -1,12 +1,23 @@
 package src.main.java.com.mobaijun;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Objects;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -51,8 +62,8 @@ public class MarkdownImageDownloader {
 
 
     public static void main(String[] args) {
-        String dirPath = "D:\\ideaProject\\kjs-projects\\studynotes";
-        String img = "D:\\ideaProject\\kjs-projects\\studynotes\\img";
+        String dirPath = "D:\\ideaProject\\kjs-projects\\.docs\\Java";
+        String img = "D:\\ideaProject\\kjs-projects\\.docs";
         File dir = new File(dirPath);
         List<File> markdownFiles = new ArrayList<>();
         scanMarkdownFiles(dir, markdownFiles, "");
