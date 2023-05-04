@@ -3,3 +3,4 @@ out/
 /img/java/Linux/
 .idea
 package-lock.json
+*.iml
